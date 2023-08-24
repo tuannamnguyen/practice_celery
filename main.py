@@ -7,13 +7,11 @@ app = Celery(
 )
 
 
-# @shared_task()
-@app.task
+@shared_task()
 def add(x, y):
     return x + y
 
-# @shared_task()
-@app.task
+@shared_task()
 def test():
     return "deez nuts on the ballots"
 
@@ -23,17 +21,14 @@ def test():
 # add.s(5, 3).delay()
 chained_task = chain(add.s(5, 3), test.si())
 
-
+print(add.apply_async(args=[5, 3]))
+print(test.apply_async())
+print(chained_task)
 
 app.conf.beat_schedule = {
-    'add-every-30-seconds': {
-        'task': 'main.add',
+    'test_beat': {
+        'task': 'add',
         'schedule': 10.0,
-        'args': (1, 2)
     },
 }
-
-print(chained_task)
-print(add.s(5, 3))
-print(test.si())
 
