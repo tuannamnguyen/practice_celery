@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "practice"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+motor = "^3.2.0"
+umongo = "^3.1.0"
+celery = "^5.3.1"
+redis = "^5.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
