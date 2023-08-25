@@ -8,4 +8,4 @@ def add(x, y):
 
 @shared_task()
 def test():
-    return "deez nuts on the ballots"
+    return "abcdef"
