@@ -9,10 +9,7 @@ app = Celery(
 
 app.conf.beat_schedule = {
     'test_beat': {
-        'task': 'proj.tasks.test1',
+        'task': 'proj.tasks.test3',
         'schedule': 3.0,
-        'options': {
-            'link': signature('proj.tasks.test2', immutable=True)
-        }
     },
 }
